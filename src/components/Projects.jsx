@@ -10,12 +10,12 @@ import Reveal from './Reveal'
 // - code: your GitHub repo link.
 const PROJECTS = [
   {
-    name: 'Project One',
-    desc: 'Add a short description: what it does, the problem it solves, and your role in it.',
-    tags: ['React', 'Node.js'],
-    image: '/projects/project-1.png',
-    caseStudy: 'https://your-case-study-link.com',
-    code: 'https://github.com/yourusername/project-one',
+    name: 'FinGenie – AI-Powered Financial Literacy Platform',
+    desc: 'Architected an end-to-end educational platform designed to teach financial literacy to children through interactive, AI-driven guidance and personalized learning paths. Implemented Gamification Modules (Progress tracking, achievements,and rewards) to increase student engagement and retention, translating dry financial concepts into interactive challenges. Engineered a Secure Backend API using FastAPI to manage user data, progress logs, and seamless integration with Small Language Models (SLMs) for real-time tutoring. Designed a Simplified UI/UX specifically for younger demographics, focusing on visual cues and intuitive navigation to make complex topics like budgeting and saving accessible.',
+    tags: ['React', 'Node.js' , 'FastAPI' , 'SLMs' , 'UI/UX' , 'Gamification' ,'FastAPI' , 'Python' , 'HTML' , 'CSS' ],
+    image: '/projects/Pasted image.png',
+    caseStudy: 'https://docs.google.com/document/d/1QCacW7s5c9-mKbo6_6NAhFZtaglTQR4h/edit',
+    code: 'https://github.com/Shamanth7/fingenie',
   },
   {
     name: 'Project Two',
