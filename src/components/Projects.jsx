@@ -23,7 +23,7 @@ const PROJECTS = [
     tags: ['Next.js', 'PostgreSQL'],
     image: '/projects/project-2.png',
     caseStudy: 'https://your-case-study-link.com',
-    code: 'https://github.com/yourusername/project-two',
+    code: 'https://github.com/GanaviDGowda/IUCEE-culling-game.git',
   },
   {
     name: 'Project Three',
