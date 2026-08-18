@@ -1,29 +1,86 @@
+import { useState } from 'react'
 import Reveal from './Reveal'
 
 // TODO: replace with your real projects. Duplicate the object shape to add more.
+// - image: add a screenshot/photo of the project to public/projects/ and
+//   reference it here as "/projects/your-file.png". Leave as null if you
+//   don't have one yet — a placeholder will show instead.
+// - caseStudy: link to a write-up (Notion, Medium, PDF, etc). Optional —
+//   delete the line if you don't have one.
+// - code: your GitHub repo link.
 const PROJECTS = [
   {
-    name: 'FinGenie – AI-Powered Financial Literacy Platform',
-    desc: 'Architected an end-to-end educational platform designed to teach financial literacy to children through interactive, AI-driven guidance and personalized learning paths. Implemented Gamification Modules (Progress tracking, achievements,and rewards) to increase student engagement and retention, translating dry financial concepts into interactive challenges. Engineered a Secure Backend API using FastAPI to manage user data, progress logs, and seamless integration with Small Language Models (SLMs) for real-time tutoring. Designed a Simplified UI/UX specifically for younger demographics, focusing on visual cues and intuitive navigation to make complex topics like budgeting and saving accessible.',
-    tags: ['React', 'Node.js' , 'FastAPI' , 'SLMs' , 'UI/UX' , 'Gamification' ,'FastAPI' , 'Python' , 'HTML' , 'CSS'],
-    live: 'https://your-live-link.com',
+    name: 'Project One',
+    desc: 'Add a short description: what it does, the problem it solves, and your role in it.',
+    tags: ['React', 'Node.js'],
+    image: '/projects/project-1.png',
+    caseStudy: 'https://your-case-study-link.com',
     code: 'https://github.com/yourusername/project-one',
   },
   {
     name: 'Project Two',
     desc: 'Add a short description: what it does, the problem it solves, and your role in it.',
     tags: ['Next.js', 'PostgreSQL'],
-    live: 'https://your-live-link.com',
+    image: '/projects/project-2.png',
+    caseStudy: 'https://your-case-study-link.com',
     code: 'https://github.com/yourusername/project-two',
   },
   {
     name: 'Project Three',
     desc: 'Add a short description: what it does, the problem it solves, and your role in it.',
     tags: ['Python', 'API'],
-    live: 'https://your-live-link.com',
+    image: '/projects/project-3.png',
+    caseStudy: 'https://your-case-study-link.com',
     code: 'https://github.com/yourusername/project-three',
   },
 ]
+
+function ProjectCard({ project, index, delay }) {
+  const [failed, setFailed] = useState(false)
+  const showImage = project.image && !failed
+
+  return (
+    <Reveal delay={delay} className="project-card">
+      <div className="project-image-wrap">
+        {showImage ? (
+          <img
+            className="project-image"
+            src={project.image}
+            alt={project.name}
+            onError={() => setFailed(true)}
+          />
+        ) : (
+          <div className="project-image-fallback mono">add image</div>
+        )}
+      </div>
+
+      <div className="project-body">
+        <span className="project-index">{String(index + 1).padStart(2, '0')}</span>
+        <h3 className="project-name">{project.name}</h3>
+        <p className="project-desc">{project.desc}</p>
+        <div className="project-tags">
+          {project.tags.map((tag) => (
+            <span className="project-tag" key={tag}>
+              {tag}
+            </span>
+          ))}
+        </div>
+        <div className="project-links">
+          {project.caseStudy && (
+            <a href={project.caseStudy} target="_blank" rel="noreferrer">
+              Case Study ↗
+            </a>
+          )}
+          {project.code && (
+            <a href={project.code} target="_blank" rel="noreferrer">
+              Code ↗
+            </a>
+          )}
+        </div>
+      </div>
+    </Reveal>
+  )
+}
 
 export default function Projects() {
   return (
@@ -38,26 +95,7 @@ export default function Projects() {
 
         <div className="projects-grid">
           {PROJECTS.map((project, i) => (
-            <Reveal key={project.name} delay={i * 90} className="project-card">
-              <span className="project-index">{String(i + 1).padStart(2, '0')}</span>
-              <h3 className="project-name">{project.name}</h3>
-              <p className="project-desc">{project.desc}</p>
-              <div className="project-tags">
-                {project.tags.map((tag) => (
-                  <span className="project-tag" key={tag}>
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <div className="project-links">
-                <a href={project.live} target="_blank" rel="noreferrer">
-                  Live ↗
-                </a>
-                <a href={project.code} target="_blank" rel="noreferrer">
-                  Code ↗
-                </a>
-              </div>
-            </Reveal>
+            <ProjectCard key={project.name} project={project} index={i} delay={i * 90} />
           ))}
         </div>
       </div>
