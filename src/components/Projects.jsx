@@ -18,7 +18,7 @@ const PROJECTS = [
     code: 'https://github.com/Shamanth7/fingenie',
   },
   {
-    name: 'Project Two',
+    name: 'Culling Game',
     desc: 'Add a short description: what it does, the problem it solves, and your role in it.',
     tags: ['Next.js', 'PostgreSQL'],
     image: '/projects/project-2.png',
