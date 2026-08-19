@@ -18,20 +18,12 @@ const PROJECTS = [
     code: 'https://github.com/Shamanth7/fingenie',
   },
   {
-    name: 'Culling Game',
-    desc: 'Add a short description: what it does, the problem it solves, and your role in it.',
-    tags: ['Next.js', 'PostgreSQL'],
-    image: '/projects/project-2.png',
+    name: 'Project One',
+    desc: '...',
+    tags: ['React', 'Node.js'],
+    images: ['/projects/Pasted image.png', '/projects/project-1-b.png'],  // 1 or more
     caseStudy: 'https://your-case-study-link.com',
-    code: 'https://github.com/GanaviDGowda/IUCEE-culling-game.git',
-  },
-  {
-    name: 'Project Three',
-    desc: 'Add a short description: what it does, the problem it solves, and your role in it.',
-    tags: ['Python', 'API'],
-    image: '/projects/project-3.png',
-    caseStudy: 'https://your-case-study-link.com',
-    code: 'https://github.com/yourusername/project-three',
+    code: 'https://github.com/yourusername/project-one',
   },
 ]
 
