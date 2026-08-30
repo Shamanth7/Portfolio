@@ -18,12 +18,12 @@ const PROJECTS = [
     code: 'https://github.com/Shamanth7/fingenie',
   },
   {
-    name: 'Project One',
-    desc: '...',
-    tags: ['React', 'Node.js'],
-    images: ['/projects/project-1-a.png', '/projects/project-1-b.png'],
-    caseStudy: 'https://your-case-study-link.com',
-    code: 'https://github.com/yourusername/project-one',
+    name: 'FixNear — Local Electronics Repair Directory',
+    desc: 'A two-sided marketplace connecting people with broken electronics (printers, phones, barcode scanners, watches, etc.) to nearby independent repair shops, as an alternative to expensive brand service centers. Customers search by device type and location to see nearby shops on an interactive map, sorted by distance; vendors list their shop for free, specifying what they repair and pinning their exact location. Built with vanilla HTML/CSS/JS, Supabase (Postgres) for data storage, and Leaflet/OpenStreetMap for mapping and geocoding — fully static and deployed on Vercel with zero backend server to maintain.',
+    tags: ['HTML', 'CSS', 'JS' , 'Postgres'],
+    images: ['/projects/Fixnear1.png', '/projects/Fixnear2.png', '/projects/Fixnear3.png', '/projects/Fixnear4.png', '/projects/Fixnear5.png'],
+    caseStudy: 'https://drive.google.com/file/d/1vQ-VZihE84GrYQutGzfHoTLjTWJTU5PI/view?usp=sharing',
+    code: 'https://github.com/Shamanth7/FixNear',
   },
 ]
 
