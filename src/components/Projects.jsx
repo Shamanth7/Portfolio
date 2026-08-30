@@ -5,6 +5,7 @@ import Reveal from './Reveal'
 // - images: an array of 1+ screenshots. Add them to public/projects/ and
 //   list the paths here, e.g. ['/projects/p1-a.png', '/projects/p1-b.png'].
 //   One image works fine too — just use a single-item array.
+// - live: link to the deployed/working project. Optional — delete if not live yet.
 // - caseStudy: link to a write-up (Notion, Medium, PDF, etc). Optional —
 //   delete the line if you don't have one.
 // - code: your GitHub repo link.
@@ -22,6 +23,7 @@ const PROJECTS = [
     desc: 'A two-sided marketplace connecting people with broken electronics (printers, phones, barcode scanners, watches, etc.) to nearby independent repair shops, as an alternative to expensive brand service centers. Customers search by device type and location to see nearby shops on an interactive map, sorted by distance; vendors list their shop for free, specifying what they repair and pinning their exact location. Built with vanilla HTML/CSS/JS, Supabase (Postgres) for data storage, and Leaflet/OpenStreetMap for mapping and geocoding — fully static and deployed on Vercel with zero backend server to maintain.',
     tags: ['HTML', 'CSS', 'JS' , 'Postgres'],
     images: ['/projects/Fixnear1.png', '/projects/Fixnear2.png', '/projects/Fixnear3.png', '/projects/Fixnear4.png', '/projects/Fixnear5.png'],
+    live: 'https://fix-near-six.vercel.app/',
     caseStudy: 'https://drive.google.com/file/d/1vQ-VZihE84GrYQutGzfHoTLjTWJTU5PI/view?usp=sharing',
     code: 'https://github.com/Shamanth7/FixNear',
   },
@@ -109,6 +111,11 @@ function ProjectCard({ project, index, delay }) {
           ))}
         </div>
         <div className="project-links">
+          {project.live && (
+            <a href={project.live} target="_blank" rel="noreferrer">
+              Live ↗
+            </a>
+          )}
           {project.caseStudy && (
             <a href={project.caseStudy} target="_blank" rel="noreferrer">
               Case Study ↗
