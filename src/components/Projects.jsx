@@ -13,7 +13,7 @@ const PROJECTS = [
     name: 'FinGenie – AI-Powered Financial Literacy Platform',
     desc: 'Architected an end-to-end educational platform designed to teach financial literacy to children through interactive, AI-driven guidance and personalized learning paths. Implemented Gamification Modules (Progress tracking, achievements, and rewards) to increase student engagement and retention, translating dry financial concepts into interactive challenges. Engineered a Secure Backend API using FastAPI to manage user data, progress logs, and seamless integration with Small Language Models (SLMs) for real-time tutoring. Designed a Simplified UI/UX specifically for younger demographics, focusing on visual cues and intuitive navigation to make complex topics like budgeting and saving accessible.',
     tags: ['React', 'Node.js', 'FastAPI', 'SLMs', 'UI/UX', 'Gamification', 'Python', 'HTML', 'CSS'],
-    images: ['/projects/Pasted image.png'],
+    images: ['/projects/fingeni1.png', '/projects/fingeni2.png' , '/projects/fingeni3.png' , '/projects/fingeni4.png'],
     caseStudy: 'https://docs.google.com/document/d/1QCacW7s5c9-mKbo6_6NAhFZtaglTQR4h/edit',
     code: 'https://github.com/Shamanth7/fingenie',
   },
