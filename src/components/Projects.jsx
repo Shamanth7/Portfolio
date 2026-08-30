@@ -2,18 +2,18 @@ import { useState } from 'react'
 import Reveal from './Reveal'
 
 // TODO: replace with your real projects. Duplicate the object shape to add more.
-// - image: add a screenshot/photo of the project to public/projects/ and
-//   reference it here as "/projects/your-file.png". Leave as null if you
-//   don't have one yet — a placeholder will show instead.
+// - images: an array of 1+ screenshots. Add them to public/projects/ and
+//   list the paths here, e.g. ['/projects/p1-a.png', '/projects/p1-b.png'].
+//   One image works fine too — just use a single-item array.
 // - caseStudy: link to a write-up (Notion, Medium, PDF, etc). Optional —
 //   delete the line if you don't have one.
 // - code: your GitHub repo link.
 const PROJECTS = [
   {
     name: 'FinGenie – AI-Powered Financial Literacy Platform',
-    desc: 'Architected an end-to-end educational platform designed to teach financial literacy to children through interactive, AI-driven guidance and personalized learning paths. Implemented Gamification Modules (Progress tracking, achievements,and rewards) to increase student engagement and retention, translating dry financial concepts into interactive challenges. Engineered a Secure Backend API using FastAPI to manage user data, progress logs, and seamless integration with Small Language Models (SLMs) for real-time tutoring. Designed a Simplified UI/UX specifically for younger demographics, focusing on visual cues and intuitive navigation to make complex topics like budgeting and saving accessible.',
-    tags: ['React', 'Node.js' , 'FastAPI' , 'SLMs' , 'UI/UX' , 'Gamification' ,'FastAPI' , 'Python' , 'HTML' , 'CSS' ],
-    image: '/projects/Pasted image.png',
+    desc: 'Architected an end-to-end educational platform designed to teach financial literacy to children through interactive, AI-driven guidance and personalized learning paths. Implemented Gamification Modules (Progress tracking, achievements, and rewards) to increase student engagement and retention, translating dry financial concepts into interactive challenges. Engineered a Secure Backend API using FastAPI to manage user data, progress logs, and seamless integration with Small Language Models (SLMs) for real-time tutoring. Designed a Simplified UI/UX specifically for younger demographics, focusing on visual cues and intuitive navigation to make complex topics like budgeting and saving accessible.',
+    tags: ['React', 'Node.js', 'FastAPI', 'SLMs', 'UI/UX', 'Gamification', 'Python', 'HTML', 'CSS'],
+    images: ['/projects/Pasted image.png'],
     caseStudy: 'https://docs.google.com/document/d/1QCacW7s5c9-mKbo6_6NAhFZtaglTQR4h/edit',
     code: 'https://github.com/Shamanth7/fingenie',
   },
@@ -21,30 +21,81 @@ const PROJECTS = [
     name: 'Project One',
     desc: '...',
     tags: ['React', 'Node.js'],
-    images: ['/projects/Pasted image.png', '/projects/project-1-b.png'],  // 1 or more
+    images: ['/projects/project-1-a.png', '/projects/project-1-b.png'],
     caseStudy: 'https://your-case-study-link.com',
     code: 'https://github.com/yourusername/project-one',
   },
 ]
 
-function ProjectCard({ project, index, delay }) {
-  const [failed, setFailed] = useState(false)
-  const showImage = project.image && !failed
+function ProjectGallery({ images, name }) {
+  const [index, setIndex] = useState(0)
+  const [failedSet, setFailedSet] = useState(() => new Set())
+
+  const validImages = images || []
+  const current = validImages[index]
+  const currentFailed = failedSet.has(current)
+  const showImage = current && !currentFailed
+
+  const go = (delta) => {
+    setIndex((i) => (i + delta + validImages.length) % validImages.length)
+  }
+
+  const markFailed = (src) => {
+    setFailedSet((prev) => new Set(prev).add(src))
+  }
 
   return (
+    <div className="project-image-wrap">
+      {showImage ? (
+        <img
+          className="project-image"
+          src={current}
+          alt={`${name} screenshot ${index + 1}`}
+          onError={() => markFailed(current)}
+        />
+      ) : (
+        <div className="project-image-fallback mono">add image</div>
+      )}
+
+      {validImages.length > 1 && (
+        <>
+          <button
+            type="button"
+            className="project-image-nav prev"
+            aria-label="Previous image"
+            onClick={() => go(-1)}
+          >
+            ‹
+          </button>
+          <button
+            type="button"
+            className="project-image-nav next"
+            aria-label="Next image"
+            onClick={() => go(1)}
+          >
+            ›
+          </button>
+          <div className="project-image-dots">
+            {validImages.map((img, i) => (
+              <button
+                key={img + i}
+                type="button"
+                className={`project-image-dot${i === index ? ' active' : ''}`}
+                aria-label={`Go to image ${i + 1}`}
+                onClick={() => setIndex(i)}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  )
+}
+
+function ProjectCard({ project, index, delay }) {
+  return (
     <Reveal delay={delay} className="project-card">
-      <div className="project-image-wrap">
-        {showImage ? (
-          <img
-            className="project-image"
-            src={project.image}
-            alt={project.name}
-            onError={() => setFailed(true)}
-          />
-        ) : (
-          <div className="project-image-fallback mono">add image</div>
-        )}
-      </div>
+      <ProjectGallery images={project.images} name={project.name} />
 
       <div className="project-body">
         <span className="project-index">{String(index + 1).padStart(2, '0')}</span>
