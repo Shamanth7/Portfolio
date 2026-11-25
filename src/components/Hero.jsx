@@ -74,14 +74,6 @@ export default function Hero() {
             Email
           </a>
         </div>
-        <div className="hero-agent">
-          <p className="hero-agent-text">
-            Curious about my work? Skip the scrolling and ask my AI agent directly.(update in progress but link is working)
-          </p>
-          <a className="btn primary" href="https://aiagent-frontend-three.vercel.app/" target="_blank" rel="noreferrer">
-           Talk with my AI agent →
-          </a>
-        </div>
       </div>
     </header>
   )
