@@ -61,7 +61,7 @@ export default function Hero() {
 
         <div className="hero-links">
           {/* TODO: point these at your real resume, GitHub, and email */}
-          <a className="btn primary" href="/public/Shamanth_B_R.pdf" target="_blank" rel="noreferrer">
+          <a className="btn primary" href="/public/Shamanth_Bidare_Ramesh_Resume_AI.pdf" target="_blank" rel="noreferrer">
             ↓ Resume
           </a>
           <a className="btn" href="https://github.com/Shamanth7" target="_blank" rel="noreferrer">
