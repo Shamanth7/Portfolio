@@ -76,7 +76,7 @@ export default function Hero() {
         </div>
         <div className="hero-agent">
           <p className="hero-agent-text">
-            Curious about my work? Skip the scrolling and ask my AI agent directly.
+            <strong>Curious about my work? Skip the scrolling and ask my AI agent directly.</strong>
           </p>
           <a className="btn primary" href="https://aiagent-frontend-five.vercel.app/" target="_blank" rel="noreferrer">
            Talk with my AI agent →
